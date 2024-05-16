@@ -51,3 +51,8 @@ def test_fibo_error_2():
 def test_fibo_error_3():
     with pytest.raises(ValueError):
         fibo('a')
+
+# 数値以外の入力
+def test_fibo_error_4():
+    with pytest.raises(ValueError):
+        fibo(0)

@@ -8,6 +8,8 @@ def fibo(n):
 
     if n < 0:
         raise ValueError("負数の入力は無効です。")
+    elif n == 0:
+        raise ValueError("0の入力は無効です。")
     elif n > 99:
         raise ValueError("100以上の入力は無効です。")
 
