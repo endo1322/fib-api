@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from fibo import fibo
 
 app = FastAPI()
 
@@ -8,6 +9,10 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/fib/")
+def get_fib(n: int):
+    try:
+        ret = fibo(n)
+        return {"result": ret}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
