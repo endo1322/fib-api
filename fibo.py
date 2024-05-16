@@ -1,6 +1,15 @@
 import sys
 
 def fibo(n):
+    try:
+        n = int(n)
+    except ValueError:
+        raise ValueError("入力は整数でなければなりません。")
+
+    if n < 0:
+        raise ValueError("負数の入力は無効です。")
+    elif n > 99:
+        raise ValueError("100以上の入力は無効です。")
 
     memo = [-1 for _ in range(max(n, 2))]
     memo[0] = 1
