@@ -1,4 +1,5 @@
 from fibo import fibo
+import pytest
 
 def test_fibo_1():
     assert fibo(3) == 2
@@ -35,3 +36,18 @@ def test_fibo_corner_2():
 
 def test_fibo_corner_3():
     assert fibo(99) == 218922995834555169026
+
+# 負数の入力
+def test_fibo_error_1():
+    with pytest.raises(ValueError):
+        fibo(-1)
+
+# 100以上の入力
+def test_fibo_error_2():
+    with pytest.raises(ValueError):
+        fibo(100)
+
+# 数値以外の入力
+def test_fibo_error_3():
+    with pytest.raises(ValueError):
+        fibo('a')
