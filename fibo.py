@@ -2,7 +2,7 @@ import sys
 
 def fibo(n):
 
-    memo = [-1 for _ in range(n)]
+    memo = [-1 for _ in range(max(n, 2))]
     memo[0] = 1
     memo[1] = 1
 
